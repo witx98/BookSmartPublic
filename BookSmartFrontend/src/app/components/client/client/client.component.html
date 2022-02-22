@@ -1,0 +1,39 @@
+<div>
+  <div class="main-container header">
+    <div class="sideColumn"></div>
+    <div class="middleColumn" style="text-align: center; margin: auto"><h1>Your reservations</h1></div>
+    <div class="sideColumn"></div>
+  </div>
+
+  <div class="main-container">
+    <div class="sideColumn">
+    </div>
+
+    <div class="middleColumn">
+          <mat-card class="example-card" *ngFor="let reservation of clientReservations$ | async">
+            <mat-card-title-group>
+              <mat-card-title>{{reservation.service.serviceName}}</mat-card-title>
+              <mat-card-subtitle>{{reservation.startTime | date: 'dd-MM-YYYY'}} {{reservation.startTime | date: 'h:mm'}}-{{reservation.endTime | date: 'h:mm'}}</mat-card-subtitle>
+              <img mat-card-md-image onerror="this.src='assets/defaultCompanyPic.jpg'" src="{{reservation.worker.pictureUrl}}" >
+            </mat-card-title-group>
+            <mat-card-content>
+              <div>
+              <p>Worker: {{reservation.worker.firstname}} {{reservation.worker.lastname}}</p>
+              <p>Duration: {{reservation.service.duration}}min</p>
+              <p>Cost: {{reservation.service.price}}zł</p>
+              <p>Status: {{reservation.status}}</p>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="btn btn-success" mat-button [disabled]="canNotBeConfirmed(reservation)">Confirm</button>
+              <button class="btn btn-danger" [disabled]="canBeCancelled(reservation)" mat-button>Cancel</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+
+    <div class="sideColumn">
+
+    </div>
+  </div>
+
+</div>

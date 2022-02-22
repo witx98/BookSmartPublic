@@ -1,0 +1,34 @@
+.main-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.columnHeader {
+  margin: auto;
+  text-align: center;
+}
+
+.header {
+  height: 200px;
+}
+
+.sideColumn{
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.middleColumn{
+  width: 40%;
+}
+
+
+.reservations-viewport {
+  width: 80%;
+  height: 65vh;
+}
+
+.reservation-content {
+  display: flex;
+  justify-content: space-evenly;
+}

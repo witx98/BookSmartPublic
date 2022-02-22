@@ -1,0 +1,70 @@
+###
+POST http://localhost:8080/services
+Content-Type: application/json
+
+{
+  "serviceName": "string",
+  "duration": {
+    "seconds": 0,
+    "nano": 0,
+    "negative": true,
+    "zero": true,
+    "units": [
+      {
+        "dateBased": true,
+        "timeBased": true,
+        "duration": {
+          "seconds": 0,
+          "nano": 0,
+          "negative": true,
+          "zero": true
+        },
+        "durationEstimated": true
+      }
+    ]
+  },
+  "price": 0,
+  "keywords": [
+    "string"
+  ]
+}
+
+###
+PATCH http://localhost:8080/services/{{id}}
+Content-Type: application/json
+
+{
+  "serviceName": "string",
+  "duration": {
+    "seconds": 0,
+    "nano": 0,
+    "negative": true,
+    "zero": true,
+    "units": [
+      {
+        "dateBased": true,
+        "timeBased": true,
+        "duration": {
+          "seconds": 0,
+          "nano": 0,
+          "negative": true,
+          "zero": true
+        },
+        "durationEstimated": true
+      }
+    ]
+  },
+  "price": 0,
+  "keywords": [
+    "string"
+  ]
+}
+
+###
+GET http://localhost:8080/services
+
+###
+GET http://localhost:8080/services?companyId={{}}
+
+###
+GET http://localhost:8080/services/{{id}}

@@ -1,0 +1,47 @@
+###
+POST http://localhost:8080/reservations
+Content-Type: application/json
+
+{
+  "startTime": "2021-11-09T23:52:12.233Z",
+  "workerId": 0,
+  "client": {
+    "id": 0,
+    "firstname": "string",
+    "lastname": "string",
+    "email": "string",
+    "phone": "string"
+  },
+  "serviceId": 0
+}
+
+###
+GET http://localhost:8080/reservations
+
+###
+GET http://localhost:8080/reservations?email=eszzzz81@gmail.com
+
+###
+GET http://localhost:8080/reservations/1
+
+###
+GET http://localhost:8080/reservations/client/{{clientId}}
+
+###
+GET http://localhost:8080/reservations/worker/{{workerId}}
+
+###
+PATCH http://localhost:8080/reservations/{{id}}/status
+Content-Type: application/json
+
+{
+  "status": "CANCELED"
+}
+
+###
+PATCH http://localhost:8080/reservations/{{id}}/status
+Content-Type: application/json
+
+{
+  "status": "DONE"
+}

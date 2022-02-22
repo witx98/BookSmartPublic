@@ -1,0 +1,73 @@
+<div class="container" id="main-container">
+  <div class="" *ngIf="selectedCompany" style="margin: auto ;width: 750px; margin-top: 100px">
+
+    <div style="margin: auto auto 50px;">
+      <img [src]="[selectedCompany.pictureUrl]" alt=""
+           onerror="this.src='assets/defaultCompanyPic.jpg'"
+           class="shadow img-fluid rounded w-90 company-image">
+    </div>
+
+    <div style="margin: auto;">
+      <div style="margin-bottom: 20px">
+        <h1 id="companyName">{{selectedCompany.companyName}}</h1>
+        <label style="color: #707070" for="companyName">
+          {{selectedCompany.street}}, {{selectedCompany.zipCode}}, {{selectedCompany.city}}
+        </label>
+        <span><p>{{selectedCompany.description}}</p></span>
+      </div>
+
+      <ul class="list-group" style="margin-bottom: 20px">
+
+        <li class="list-group-item">
+          <div>
+            <div class="float-left">
+              <h2 style="margin-top: 25px" >Services:</h2>
+            </div>
+            <div class="float-right" style="width: 50%">
+              <form class="example-form" style="margin-top: 15px">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>What are you looking for</mat-label>
+                  <input matInput placeholder="Ex. haircut" value="" (input)="serviceName$.next($any($event.target).value)">
+                </mat-form-field>
+              </form>
+            </div>
+          </div>
+
+        </li>
+        <li *ngFor="let service of selectedCompanyServices$ | async; trackBy:identifyService" class="list-group-item">
+          <b>{{service.serviceName}}</b>
+          <div style="display: flex; height: 34px" class="float-right">
+            <div style="display: inline-block; margin-right: 5px">
+              <div style="height: 52%" id="price"><b>{{service.price}} zł</b></div>
+              <div style="height: 48%"><label style="font-size: 11px; color: #707070"
+                                              for="price">{{service.duration}}min</label></div>
+            </div>
+            <button class="btn btn-info" style="height: 34px">Book</button>
+          </div>
+        </li>
+      </ul>
+
+      <div style="margin: auto auto 50px;">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h2 style="margin-top: 25px">Contact data:</h2>
+          </li>
+          <li class="list-group-item">
+            <b>E-mail:</b> {{selectedCompany.email}}
+          </li>
+          <li class="list-group-item">
+            <b>Phone:</b> {{selectedCompany.phone}}
+          </li>
+        </ul>
+
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+

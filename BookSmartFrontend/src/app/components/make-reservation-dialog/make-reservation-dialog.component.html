@@ -1,0 +1,130 @@
+<mat-horizontal-stepper linear>
+  <mat-step #stepOne label="Choose worker" [completed]="!workers.selectedOptions.isEmpty()">
+
+    <h2 mat-dialog-title>Select one of our workers</h2>
+    <mat-dialog-content>
+      <mat-selection-list #workers [multiple]="false">
+        <mat-list-option *ngFor="let worker of selectedCompany?.workers" [value]="worker">
+          {{worker.firstname + " " + worker.lastname}}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-dialog-content>
+    <button mat-button matStepperNext [disabled]="workers.selectedOptions.isEmpty()" (click)="setSelectedWorker(workers.selectedOptions.selected[0]?.value)">Next
+    </button>
+
+  </mat-step>
+
+  <mat-step label="Select date and time" [completed]="!dates.selectedOptions.isEmpty()">
+    <h2 mat-dialog-title>Date and Time</h2>
+    <mat-dialog-content>
+      <mat-card class="demo-inline-calendar-card">
+        <mat-calendar [minDate]="minDate" [maxDate]="maxDate" (selectedChange)="setDate($event)"></mat-calendar>
+      </mat-card>
+      <mat-selection-list #dates [multiple]="false">
+        <mat-list-option *ngFor="let availableDate of availableDates" [value]="availableDate"
+                         class="btn btn-info datesDivs">
+          {{availableDate.startTime | date:'H:mm'}}
+        </mat-list-option>
+        <mat-divider></mat-divider>
+      </mat-selection-list>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext [disabled]="dates.selectedOptions.isEmpty()" (click)="setSelectedAvailableDate(dates.selectedOptions.selected[0]?.value)">
+          Next
+        </button>
+      </div>
+    </mat-dialog-content>
+
+  </mat-step>
+
+  <mat-step label="Fill your contact data" [completed]="filled">
+    <h2 mat-dialog-title>Contact data</h2>
+    <mat-dialog-content>
+      <form [formGroup]="form" (ngSubmit)="onContactDataFormSubmit()">
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" [disabled]="isClientLoggedIn" id="firstname" formControlName="firstname" class="form-control"
+                 [ngClass]="{ 'is-invalid': f.firstname.errors }"/>
+          <div *ngIf="f.firstname.errors" class="invalid-feedback">
+            <div *ngIf="f.firstname.errors.required">First Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" formControlName="lastname" class="form-control"
+                 [ngClass]="{ 'is-invalid': f.lastname.errors }"/>
+          <div *ngIf="f.lastname.errors" class="invalid-feedback">
+            <div *ngIf="f.lastname.errors.required">Last Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" class="form-control"
+                 [ngClass]="{ 'is-invalid': f.email.errors }"/>
+          <div *ngIf="f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must have email form</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" formControlName="phone" class="form-control"
+                 [ngClass]="{ 'is-invalid': f.phone.errors }"/>
+          <div *ngIf="f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Phone number is required</div>
+            <div *ngIf="f.phone.errors.pattern">Incorrect phone number pattern</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="isFormInvalid" mat-button>
+            Submit data
+          </button>
+        </div>
+      </form>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button [disabled]="!filled" matStepperNext>Next</button>
+      </div>
+    </mat-dialog-content>
+
+  </mat-step>
+
+  <mat-step label="Summary" [completed]="true">
+    <h2 mat-dialog-title>Summary</h2>
+    <mat-dialog-content>
+      <div *ngIf="filled">
+        <p *ngIf="selectedCompany != undefined">
+          Company: {{selectedCompany.companyName}}</p>
+        <p *ngIf="selectedWorker != undefined">
+          Worker: {{selectedWorker.firstname + " " + selectedWorker.lastname}}</p>
+        <p *ngIf="selectedService != undefined">
+          Service: {{selectedService.serviceName + " " + selectedService.price + "zł " + selectedService.duration + "min"}}</p>
+        <p *ngIf="selectedAvailableDate != undefined">
+          Date: {{selectedDate | date:'YYYY-MM-dd'}}</p>
+        <p *ngIf="selectedAvailableDate != undefined">
+          Hours: {{selectedAvailableDate.startTime | date:'H:mm'}}
+          - {{selectedAvailableDate.endTime | date:'H:mm'}}
+        </p>
+        <div *ngIf="createClientCommand != undefined">
+          <p>Contact data:</p>
+          <ul>
+            <li>Name: {{createClientCommand.firstname}} {{createClientCommand.lastname}}</li>
+            <li>Email: {{createClientCommand.email}}</li>
+            <li>Phone: {{createClientCommand.phone}}</li>
+          </ul>
+        </div>
+        <p><b>Attention! After making reservation you have 15 minutes to confirm it via provided email. Otherwise your booking will be canceled.</b></p>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button [mat-dialog-close]="reservationCompleted" (click)="makeReservation()">Make reservation</button>
+      </div>
+    </mat-dialog-content>
+  </mat-step>
+
+
+</mat-horizontal-stepper>
+

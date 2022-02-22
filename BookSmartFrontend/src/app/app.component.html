@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container-fluid" style="height: 50px">
+    <a class="navbar-brand" href="#">Book<span class="text-info">Smart</span></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <form class="d-flex search-bar" [formGroup]="companyListForm" (ngSubmit)="searchCompanyList(serviceName.value, city.value)">
+        <input #serviceName id="serviceName" formControlName="serviceName" class="form-control me-2 service-input" type="search" placeholder="Service" aria-label="Search">
+        <input #city id="city" formControlName="city" class="form-control me-2 city-input" type="search" placeholder="City" aria-label="Search">
+        <button class="btn btn-outline-info search-button" type="submit">
+          <mat-icon aria-hidden="false">search</mat-icon>
+        </button>
+      </form>
+
+      <button *ngIf="isClientLoggedIn()" class="btn btn-outline-info loginButtons" (click)="clientReservations()">Reservations</button>
+      <button *ngIf="!isUserLoggedIn()" class="btn btn-outline-info loginButtons" (click)="singIn()">Sign in</button>
+      <button *ngIf="!isUserLoggedIn()" class="btn signUp loginButtons" (click)="signUp()">Sign up</button>
+      <button *ngIf="isWorkerLoggedIn()" class="btn forCompanies loginButtons" (click)="workerSchedule()">Schedules</button>
+      <button *ngIf="isUserLoggedIn()" class="btn btn-outline-info loginButtons" (click)="logout()">Logout</button>
+
+    </div>
+  </div>
+
+</nav>
+
+<app-alert></app-alert>
+<!--<app-company-list></app-company-list>-->
+<router-outlet></router-outlet>

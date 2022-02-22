@@ -1,0 +1,15 @@
+serviceName,duration,price,keywords,companyEmail
+Strzyżenie włosów ,PT15M,30.00,"fryzjer, strzyżenie, włosy",companyOne@example.org
+Strzyżenie włosów ,PT30M,50.00,"fryzjer, strzyżenie, włosy",companyTwo@example.org
+Strzyżenie włosów ,PT45M,75.00,"fryzjer, strzyżenie, włosy",companyThree@example.org
+Strzyżenie maszynką,PT20M,25.00,"fryzjer, maszynka, włosy",companyOne@example.org
+Strzyżenie maszynką,PT25M,40.00,"fryzjer, maszynka, włosy",companyTwo@example.org
+Strzyżenie maszynką,PT35M,55.00,"fryzjer, maszynka, włosy",companyThree@example.org
+Strzyżenie brody,PT20M,15.00,"fryzjer, strzyżenie, broda",companyOne@example.org
+Strzyżenie brody,PT25M,19.00,"fryzjer, strzyżenie, broda",companyTwo@example.org
+Strzyżenie brody,PT25M,24.00,"fryzjer, broda",companyThree@example.org
+Strzyżenie - włosy długie,PT60M,70.00,"fryzjer, włosy, długie",companyOne@example.org
+Strzyżenie męskie,PT15M,30.00,"fryzjer, włosy, długie, krótkie",companyOne@example.org
+Strzyżenie damskie,PT60M,90.00,"fryzjer, włosy, długie, kobieta, krótkie",companyOne@example.org
+Koloryzacja,PT90M,115.00,"fryzjer, kolor, włosy, farba",companyOne@example.org
+Stylizacja brody,PT25M,24.00,"fryzjer, broda, barber, golenie, strzyżenie",companyOne@example.org

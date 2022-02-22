@@ -1,0 +1,34 @@
+###
+POST http://localhost:8080/schedules
+Content-Type: application/json
+
+{
+  "workerId": 0,
+  "date": "2021-11-09",
+  "startTime": "2021-11-09T23:58:31.318Z",
+  "endTime": "2021-11-09T23:58:31.318Z"
+}
+
+###
+GET http://localhost:8080/schedules/{{id}}
+
+###
+GET http://localhost:8080/schedules/worker/{{workerId}}
+
+###
+PATCH http://localhost:8080/schedules/{{id}}
+Content-Type: application/json
+
+{
+  "workerId": 0,
+  "date": "2021-11-09",
+  "startTime": "2021-11-09T23:59:00.015Z",
+  "endTime": "2021-11-09T23:59:00.015Z"
+}
+
+###
+GET http://localhost:8080/schedules/company/{{companyId}}
+
+
+###
+DELETE http://localhost:8080/schedules/{{id}}

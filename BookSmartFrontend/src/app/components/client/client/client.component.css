@@ -1,0 +1,22 @@
+.main-container {
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header {
+  height: 200px;
+}
+
+.sideColumn{
+  width: 30%;
+  text-align: center;
+}
+
+.middleColumn{
+  width: 35%;
+}
+
+.example-card {
+  margin-bottom: 8px;
+}

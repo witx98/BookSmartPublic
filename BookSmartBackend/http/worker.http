@@ -1,0 +1,23 @@
+### Add worker
+POST http://localhost:8080/workers
+Content-Type: application/json
+
+{
+  "firstname": "Ewelina",
+  "lastname": "Szczupak",
+  "phone": "000-000-000",
+  "email": "szczupake@gmail.com",
+  "companyId": 1
+}
+
+### Get all workers
+GET http://localhost:8080/workers
+
+### Get all company workers
+GET http://localhost:8080/workers?companyId=1
+
+### Get worker by id
+GET http://localhost:8080/workers/2
+
+###
+PUT http://localhost:8080/2/picture

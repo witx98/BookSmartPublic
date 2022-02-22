@@ -1,0 +1,26 @@
+###
+POST http://localhost:8080/clients
+Content-Type: application/json
+
+{
+  "firstname": "Ewelina",
+  "lastname": "Szczupak",
+  "phone": "123123123",
+  "email": "eszzzz81@gmail.com"
+}
+
+###
+GET http://localhost:8080/clients
+
+###
+PATCH http://localhost:8080/clients/1
+Content-Type: application/json
+
+{
+  "firstname": "Ewelina",
+  "lastname": "Szczupak",
+  "phone": "111222333"
+}
+
+###
+GET http://localhost:8080/clients/1

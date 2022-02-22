@@ -1,0 +1,6 @@
+firstname,lastname,phone,email,companyEmail,picture
+Anna,Nowak,000-000-000,anna@example.org,companyOne@example.org,
+Magdalena,Wrona,000-111-000,magdalena@example.org,companyTwo@example.org,
+Karolina,Kowalska,000-222-000,karolina@example.org,companyThree@example.org,
+Kamil,Kowalski,000-000-111,kamil@example.org,companyOne@example.org,
+Jan,Kowal,000-000-222,jan@example.org,companyOne@example.org,

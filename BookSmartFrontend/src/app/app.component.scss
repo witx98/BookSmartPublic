@@ -1,0 +1,48 @@
+$search-bar-width: 450px;
+$search-bar-height: 38px;
+
+
+.search-bar {
+  height: $search-bar-height;
+  //position: absolute;
+  //left: 50%;
+  width: $search-bar-width;
+  //margin-left: -$search-bar-width/2;
+  margin: auto;
+}
+.signUp {
+  color: white;
+  border: 1px solid white;
+}
+.forCompanies {
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.loginButtons {
+  margin-right: 10px;
+  //border-radius: 10px;
+}
+
+.signUp:hover {
+  background-color: white;
+  color: black;
+}
+
+.forCompanies:hover {
+  background-color: lightgray;
+  border-color: lightgray;
+}
+
+.service-input {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.city-input {
+  border-radius: 0;
+}
+.search-button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

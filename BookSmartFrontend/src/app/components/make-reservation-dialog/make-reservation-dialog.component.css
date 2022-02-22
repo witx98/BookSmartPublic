@@ -1,0 +1,11 @@
+.demo-inline-calendar-card {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.datesDivs {
+  width: 30%;
+  margin: 5px;
+  color: white;
+  font-size: 15px;
+}

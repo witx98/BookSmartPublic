@@ -1,0 +1,21 @@
+### Create Company
+POST http://localhost:8080/companies
+Content-Type: application/json
+
+{
+  "companyName": "SzczupakEcompany",
+  "phone": "000-000-000",
+  "email": "szczupake@gmail.com",
+  "street": "Bytomska",
+  "city": "Cracow",
+  "zipCode": "30-800"
+}
+
+### Get all companies
+GET http://localhost:8080/companies
+
+### Get specfied company
+GET http://localhost:8080/companies/1
+
+###
+PUT http://localhost:8080/1/picture

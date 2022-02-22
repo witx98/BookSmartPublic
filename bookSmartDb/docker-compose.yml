@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: bookSmartdb
+    image: postgres:12.4
+    restart: always
+    environment:
+      POSTGRES_DB: bookSmart
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: zaq1@WSX
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - 7435:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+
